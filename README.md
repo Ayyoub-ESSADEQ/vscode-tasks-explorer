@@ -47,7 +47,3 @@ In this file, you can define tasks such as:
 - **Run Tests**: Runs `npm test` to run your tests.
 
 By using the Task Manager and `tasks.json` file in VS Code, you can make your workflow smoother and handle your project's tasks more efficiently.
-
-## Demo
-
-![extension demo](https://github.com/sana-ajani/taskrunner-code/blob/master/assets/taskrunner.gif?raw=true)
