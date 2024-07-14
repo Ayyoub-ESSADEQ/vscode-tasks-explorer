@@ -1,0 +1,91 @@
+{
+  "name": "taskrunnercode",
+  "displayName": "Task Runner",
+  "description": "VS Code extension to view and run tasks from Explorer pane",
+  "icon": "check.png",
+  "version": "0.2.0",
+  "publisher": "Ayyoub Essadeq",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ayyoub-ESSADEQ/vscode-tasks-explorer.git"
+  },
+  "engines": {
+    "vscode": "^1.26.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "tasks",
+    "packages",
+    "execute"
+  ],
+  "galleryBanner": {
+    "color": "#d7ede1"
+  },
+  "activationEvents": [],
+  "main": "./out/extension",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "taskRunner",
+          "title": "Task Runner",
+          "icon": "$(terminal-cmd)"
+        }
+      ]
+    },
+    "views": {
+      "taskRunner": [
+        {
+          "id": "TaskRunner",
+          "name": "Task Explorer"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "TaskRunner.executeTask",
+        "title": "Execute"
+      },
+      {
+        "command": "TaskRunner.refresh",
+        "title": "Refresh",
+        "icon": "$(extensions-refresh)"
+      },
+      {
+        "command": "TaskRunner.createNewTask",
+        "title": "Add new task",
+        "icon": "$(diff-insert)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "TaskRunner.refresh",
+          "group": "navigation",
+          "when": "view == TaskRunner"
+        },
+        {
+          "command": "TaskRunner.createNewTask",
+          "group": "navigation",
+          "when": "view == TaskRunner"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "build:production": "node ./esbuild.js --production"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.66",
+    "esbuild": "^0.23.0",
+    "tslint": "^5.8.0",
+    "typescript": "^3.0.3",
+    "vscode": "^1.1.21"
+  }
+}
